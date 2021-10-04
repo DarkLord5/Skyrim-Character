@@ -13,3 +13,4 @@ D:\Мои файлы\Треннинги\Мои проекты\SkyrimPlayer\obj\D
 D:\Мои файлы\Треннинги\Мои проекты\SkyrimPlayer\obj\Debug\net5.0\ref\SkyrimPlayer.dll
 D:\Мои файлы\Треннинги\Мои проекты\SkyrimPlayer\obj\Debug\net5.0\SkyrimPlayer.pdb
 D:\Мои файлы\Треннинги\Мои проекты\SkyrimPlayer\obj\Debug\net5.0\SkyrimPlayer.genruntimeconfig.cache
+D:\Мои файлы\Треннинги\Мои проекты\SkyrimPlayer\obj\Debug\net5.0\SkyrimPlayer.csproj.AssemblyReference.cache
