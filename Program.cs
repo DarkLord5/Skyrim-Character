@@ -23,7 +23,7 @@ namespace SkyrimPlayer
                 if ((language == "2") || (language == "ru"))
                 {
                     language = russian;
-                    using StreamReader sr = new StreamReader(@"translations/RuText.json");
+                    using StreamReader sr = new StreamReader(@"public\translations\RuText.json");
                     json = sr.ReadToEnd();
                     sr.Close();
                     break;
@@ -31,7 +31,7 @@ namespace SkyrimPlayer
                 if ((language == "1") || (language == "eng"))
                 {
                     language = english;
-                    using StreamReader sr = new StreamReader(@"translations/EngText.json");
+                    using StreamReader sr = new StreamReader(@"public\translations\EngText.json");
                     json = sr.ReadToEnd();
                     sr.Close();
                     break;
