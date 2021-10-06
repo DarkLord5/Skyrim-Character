@@ -9,26 +9,26 @@ namespace SkyrimPlayer
         {
             { 1, "You are a addict, so, you must take 1 dose of skooma every two days." },
             { 2, "As you can see, brother, you are another drunk from the street. Now you have to drink two extra bottles after eating." },
-            { 3, "You are thief! You cannot control yourself and every night you steal 3 things from the residents' hut. I condemn." },
-            { 4, "Hmmm, you're also a fagot because you've been diagnosed with severe northern HIV. Now you cannot heal diseases." },
-            { 5, "They are looking for you, they cannot go to their hometown, but if you are from the forest then give a fuck. Find out what it is like for the Skyrim bums, roam like Genghis Khan every three days to another city." },
+            { 3, "You are thief! You cannot control yourself and every night you steal 3 things from the someone house." },
+            { 4, "Your body is so weak... Now you cannot heal diseases." },
+            { 5, "Guards are looking for you, now you cannot live in your hometown, but if you are from the forest then don't care. Roam like Genghis Khan every three days to another city." },
             { 6, "You are a schizo, so every two days you are obliged to change your bad habit, if the schiz falls, roll again." },
-            { 7, "Become a vampire before starting the game. Do not heal, suck yourself calmly, but do not let anyone know about it." },
+            { 7, "Become a vampire before starting the game. Do not heal, suck calmly, but do not let anyone know about it." },
             { 8, "Your face is boring, no one will give you money. You can't carry more than 500 gold." },
-            { 9, "Apparently you are not a liar, but a schizo. Since you have already chosen a victim and you rearrange objects there every night. What the fuck? Fuck knows you." }
+            { 9, "Apparently you are not a liar, but a schizo. Since you have already chosen a victim and you rearrange objects there every night." }
         };
 
         static Dictionary<int, string> RuHabbitDisc = new()
         {
             { 1, "Так как ты наркоман, ты обязан принимать 1 дозу скумы раз в два дня." },
             { 2, "Как видишь, друг, ты алкоголик. Теперь ты обязан пить две доп бутылки после принятия пищи." },
-            { 3, "Ты ворюга ебучая! Не можешь себя контролировать и каждую ночь воруешь по 3 вещи с хаты жителей. Осуждаю." },
-            { 4, "М-да, ты ещё и заднеприводный у нас, ведь у тебя диагностировали суровый северный ВИЧ. Теперь ты не можешь излечивать болезни." },
-            { 5, "Тебя ищут, в родной город те нельзя, но если ты из лесу то похуй. Узнай каково скайримским бомжам, кочуй как Чингисхан каждый три дня в другой город." },
+            { 3, "Ты не можешь себя контролировать и каждую ночь воруешь по 3 вещи с домов жителей." },
+            { 4, "М-да, у тебя очень слабая имунная система. Теперь ты не можешь излечивать болезни." },
+            { 5, "Тебя ищут стражники, в родной город соваться нельзя, но если ты из лесу то плевать. Кочуй как Чингисхан каждые три дня в другой город." },
             { 6, "Ты шизик, поэтому каждые два дня ты обязан менять свою вредную привычку, коль упадёт шиза, роляй снова." },
             { 7, "Стань вампирчиком перед началом игры. Не лечись, соси себе спокойно, но не дай никому узнать об этом." },
             { 8, "У тебя лицо скучное, тебе никто денег не даст. Больше 500 золота носить не можешь." },
-            { 9, "Видимо ты не лжец, а шизик. Так как уже выбрал жертву и переставляешь каждую ночь там предметы. Нахуя? А хуй тебя знает." }
+            { 9, "Видимо ты не лжец, а шизик. Так как уже выбрал жертву и переставляешь каждую ночь там предметы." }
         };
 
         static Dictionary<int, string> EngRaceDict = new()
@@ -147,8 +147,8 @@ namespace SkyrimPlayer
                     else
                     {
                         if (language == "ru")
-                            Console.WriteLine($"\nРешил наебать меня? Собака, хуй тебе, теперь у тебя не будет шанса выбрать самому {EngPersonalDict[i]}.\n");
-                        else { Console.WriteLine($"\nDid you fuck with me, dog? Now you won't have a chance to choose {EngPersonalDict[i]} yourself. \n"); }
+                            Console.WriteLine($"\nРешил обмануть меня? Теперь у тебя не будет шанса выбрать самому {EngPersonalDict[i]}.\n");
+                        else { Console.WriteLine($"\nHave you just tried to cheat on me? Now you won't have a chance to choose {EngPersonalDict[i]} yourself. \n"); }
                         propertyArr[i, 0] = Charact.ParamRandomizer(1, propertyArr[i, 1] + 1);
                     }
                 }
@@ -159,13 +159,13 @@ namespace SkyrimPlayer
             var result = Charact.CreateCharacter(resultArray);
             if (language == "ru")
             {
-                Console.WriteLine($"Запомни, Довакин, теперь ты {RuRaceDict[result[1]]}. Так вышло, что твоя родина - {RuTownDict[result[2]]}.\nРабота непростая, ведь ты у нас {RuProfDict[result[3]]}. Как я понял, ты дохуя {RuWorldVisDict[result[4]]}, что ж, дело твоё. \nВ твоей жизни не всё так просто, у тебя есть хреновая особенность, ты {RuBadHabDict[result[5]]}!");
+                Console.WriteLine($"Запомни, Довакин, теперь ты {RuRaceDict[result[1]]}. Так вышло, что твоя родина - {RuTownDict[result[2]]}.\nРабота непростая, ведь ты у нас {RuProfDict[result[3]]}. Как я понял, ты {RuWorldVisDict[result[4]]}, что ж, твои взгляды - твоё дело. \nВ твоей жизни не всё так просто, у тебя есть неприятная особенность, ты {RuBadHabDict[result[5]]}!");
                 Console.WriteLine($"Расскажу-ка тебе, как с такой особенностью живётся. \n{RuHabbitDisc[result[4]]}\n\n");
                 Console.WriteLine("Вот тебе ещё правила, мотай на ус:\n1)Быстрое перемещение запрещено. Использовать баги/читы/консольку нельзя.\n2)Ездить на лошади разрешено, но только по дорогам.\n3)Ешь три раза в день, твой рацион - 3 блюда и 1 напиток\n4)Спи минимум 7 часов, если недоспал или спал слишком много, то отними или прибавь доп часы к следующему сну.\nСпать можешь только на оборудованных для сна местах.\n5)Ты не можешь носить больше 80 килограмм груза.\n6)Если на улице дождь - надевай головной убор\n7)Твоя сумка вмещает только то, что может в реальности, то есть без огромных предметов внутри.\n8)Cлушай все диалоги в игре без пропусков.\n9)Твоё имя должно подходить твоей расе.\n10)Получай опыт реалистично, без пауэрлевелинга.\n11)Путешествие начинается после того, как ты поспал в родной локации. Игнорируй главный квест.");
             }
             else
             {
-                Console.WriteLine($"Remember, Dovahkiin, now you are {EngRaceDict[result[1]]}. It so happened that your homeland is {EngTownDict[result[2]]}. \nWork is not easy, because you are {EngProfDict[result[3]]}. As I understand, you are fucking {RuWorldVisDict[result[5]]}, well, it's your business. \nYour life is not so simple, you have a shitty peculiarity, you are {EngBadHabDict[result[5]]}!");
+                Console.WriteLine($"Remember, Dovahkiin, now you are {EngRaceDict[result[1]]}. It so happened that your homeland is {EngTownDict[result[2]]}. \nWork is not easy, because you are {EngProfDict[result[3]]}. As I understand, you are {RuWorldVisDict[result[5]]}, well, it's your business. \nYour life is not so simple, you have a unpleasant peculiarity, you are {EngBadHabDict[result[5]]}!");
                 Console.WriteLine($"I'll tell you how you live with such a feature. \n{EngHabbitDisc[result[4]]}\n\n");
                 Console.WriteLine("Here are some more rules, read and remember: \n1) Fast travel is prohibited. You cannot use bugs / cheats / console. \n2) Riding a horse is allowed, but only on the roads. \n3) Eat three times a day, your diet is 3 meals and 1 drink \n4) Sleep at least 7 hours if you did not sleep enough or slept too much, then take away or add extra hours to the next sleep. \nSleep only in places equipped for sleeping.\n5) You cannot carry more than 80 kilograms of cargo. \n6) If it is raining outside, put on a hat \n7) Your bag only holds what it can in reality, that is, without huge objects inside. \n8) Listen to all the dialogues in play without skipping. \n9) Your name must be suitable for your race. \n10) Experience realistically, without power leveling. \n11) The journey begins after you have slept in your home location. Ignore the main quest.");
             }
