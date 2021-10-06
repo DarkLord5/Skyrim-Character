@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+
 
 namespace SkyrimPlayer
 {
@@ -86,11 +88,21 @@ namespace SkyrimPlayer
         };
         static void Main(string[] args)
         {
-            Dictionary<int, Dictionary<int, string>> EngBaseDict = new() { { 1, EngRaceDict }, { 2, EngTownDict }, { 3, EngProfDict }, { 4, EngWorldVisDict }, { 5, EngBadHabDict } };
-            Dictionary<int, Dictionary<int, string>> RuBaseDict = new() { { 1, RuRaceDict }, { 2, RuTownDict }, { 3, RuProfDict }, { 4, RuWorldVisDict }, { 5, RuBadHabDict } };
-            Dictionary<int, string> EngPersonalDict = new() { {0, "race" },{1, "homeland" },{2, "profesion" },{3, "world wision" },{4,"bad habbit" } };
+            Dictionary<int, string> EngPersonalDict = new() { { 0, "race" }, { 1, "homeland" }, { 2, "profesion" }, { 3, "world wision" }, { 4, "bad habbit" } };
             Dictionary<int, string> RuPersonalDict = new() { { 0, "расу" }, { 1, "родину" }, { 2, "профессию" }, { 3, "мировоззрение" }, { 4, "вредную привычку" } };
 
+            Dictionary<string, Dictionary<int, string>> RuDict = new Dictionary<string, Dictionary<int, string>>() {
+                {"race", RuRaceDict }, {"homeland", RuTownDict}, {"profesion", RuProfDict}, {"world wision", RuWorldVisDict}, {"bad habbit", RuBadHabDict}, {"phrases", RuPersonalDict },{"habbit discription", RuHabbitDisc }
+            };
+            Dictionary<string, Dictionary<int, string>> EngDict = new Dictionary<string, Dictionary<int, string>>() {
+                {"race", EngRaceDict }, {"homeland", EngTownDict}, {"profesion", EngProfDict}, {"world wision", EngWorldVisDict}, {"bad habbit", EngBadHabDict}, {"phrases", EngPersonalDict },{"habbit discription", EngHabbitDisc }
+            };
+            string Engjson = JsonConvert.SerializeObject(EngDict);
+            System.IO.File.WriteAllText(@"translations/EngText.json", Engjson);
+            
+            Dictionary<int, Dictionary<int, string>> EngBaseDict = new() { { 1, EngRaceDict }, { 2, EngTownDict }, { 3, EngProfDict }, { 4, EngWorldVisDict }, { 5, EngBadHabDict } };
+            Dictionary<int, Dictionary<int, string>> RuBaseDict = new() { { 1, RuRaceDict }, { 2, RuTownDict }, { 3, RuProfDict }, { 4, RuWorldVisDict }, { 5, RuBadHabDict } };
+            
             MyCharacter Charact = new();
             var propertyArr = new int[5,2];
             for (int i = 1; i <= 5; i++)
