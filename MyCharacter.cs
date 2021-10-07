@@ -44,12 +44,13 @@ namespace SkyrimPlayer
         }
         public Dictionary<int, int> CreateCharacter(int[] array)
         {
-            MyRace = RaceDict[array[0]];
-            MyTown = TownDict[array[1]];
-            MyProfecy = ProfDict[array[2]];
-            MyWorldVision = WorldVisDict[array[3]];
-            MyBadHabbit = BadHabDict[array[4]];
-            return new Dictionary<int, int>() { {1 , array[0] },{2 , array[1] },{3 , array[2] },{4, array[3] },{5 , array[4] } };
+            int raceId = array[0]; int townId = array[1]; int profId = array[2]; int worldId = array[3]; int bhId = array[4];
+            MyRace = RaceDict[raceId];
+            MyTown = TownDict[townId];
+            MyProfecy = ProfDict[profId];
+            MyWorldVision = WorldVisDict[worldId];
+            MyBadHabbit = BadHabDict[bhId];
+            return new Dictionary<int, int>() { {1 , raceId },{2 , townId },{3 , profId },{4, worldId },{5 , bhId } };
         }
     }
 }

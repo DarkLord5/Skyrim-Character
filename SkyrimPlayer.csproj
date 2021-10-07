@@ -11,7 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="public\translations\EngOutText.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="public\translations\EngText.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="public\translations\RuOutText.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="public\translations\RuText.json">

@@ -5,15 +5,12 @@ using System.IO;
 
 namespace SkyrimPlayer
 {
-    class Program
+    static class Program
     {
-        const string english = "english";
-        const string russian = "russian";
-        
         static void Main(string[] args)
         {
             MyCharacter Charact = new();
-
+            
             string language;
             string json;
             do
@@ -22,7 +19,7 @@ namespace SkyrimPlayer
                 language = Console.ReadLine();
                 if ((language == "2") || (language == "ru"))
                 {
-                    language = russian;
+                    language = TextLocalization.russian;
                     using StreamReader sr = new StreamReader(@"public\translations\RuText.json");
                     json = sr.ReadToEnd();
                     sr.Close();
@@ -30,7 +27,7 @@ namespace SkyrimPlayer
                 }
                 if ((language == "1") || (language == "eng"))
                 {
-                    language = english;
+                    language = TextLocalization.english;
                     using StreamReader sr = new StreamReader(@"public\translations\EngText.json");
                     json = sr.ReadToEnd();
                     sr.Close();
