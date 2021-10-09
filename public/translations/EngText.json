@@ -1,1 +1,83 @@
-{"race":{"1":"Argonian","2":"Khajiit","3":"Orc","4":"Altmer","5":"Dunmer","6":"Bosmer","7":"Nord","8":"Redguard","9":"Breton","10":"Imperial"},"homeland":{"1":"Whiterun","2":"Riften","3":"Windhelm","4":"Winterhold","5":"Dawnstar","6":"Solitude","7":"Morthal","8":"Falkreath","9":"Forest"},"profesion":{"1":"Dealer","2":"Blacksmith","3":"Alchemist","4":"Enchanter","5":"Fisherman","6":"Hunter","7":"Miner","8":"Chef","9":"Murderer"},"world wision":{"1":"Kind","2":"Neutral","3":"Rightfull","4":"Lawful","5":"Hero","6":"Idiot","7":"CriminalInLaw","8":"Selfish","9":"Evil"},"bad habbit":{"1":"Addict","2":"Alcoholic","3":"Kleptomaniac","4":"Weakened","5":"Criminal","6":"Schizophrenic","7":"Vampire","8":"Ugly","9":"Liar"},"phrases":{"0":"race","1":"homeland","2":"profesion","3":"world wision","4":"bad habbit"},"habbit discription":{"1":"You are a addict, so, you must take 1 dose of skooma every two days.","2":"As you can see, brother, you are another drunk from the street. Now you have to drink two extra bottles after eating.","3":"You are thief! You cannot control yourself and every night you steal 3 things from the someone house.","4":"Your body is so weak... Now you cannot heal diseases.","5":"Guards are looking for you, now you cannot live in your hometown, but if you are from the forest then don't care. Roam like Genghis Khan every three days to another city.","6":"You are a schizo, so every two days you are obliged to change your bad habit, if the schiz falls, roll again.","7":"Become a vampire before starting the game. Do not heal, suck calmly, but do not let anyone know about it.","8":"Your face is boring, no one will give you money. You can't carry more than 500 gold.","9":"Apparently you are not a liar, but a schizo. Since you have already chosen a victim and you rearrange objects there every night."}}
+{
+  "race": {
+    "1": "Argonian",
+    "2": "Khajiit",
+    "3": "Orc",
+    "4": "Altmer",
+    "5": "Dunmer",
+    "6": "Bosmer",
+    "7": "Nord",
+    "8": "Redguard",
+    "9": "Breton",
+    "10": "Imperial"
+  },
+  "homeland": {
+    "1": "Whiterun",
+    "2": "Riften",
+    "3": "Windhelm",
+    "4": "Winterhold",
+    "5": "Dawnstar",
+    "6": "Solitude",
+    "7": "Morthal",
+    "8": "Falkreath",
+    "9": "Forest"
+  },
+  "profesion": {
+    "1": "Dealer",
+    "2": "Blacksmith",
+    "3": "Alchemist",
+    "4": "Enchanter",
+    "5": "Fisherman",
+    "6": "Hunter",
+    "7": "Miner",
+    "8": "Chef",
+    "9": "Murderer"
+  },
+  "world wision": {
+    "1": "Kind",
+    "2": "Neutral",
+    "3": "Rightfull",
+    "4": "Lawful",
+    "5": "Hero",
+    "6": "Idiot",
+    "7": "CriminalInLaw",
+    "8": "Selfish",
+    "9": "Evil"
+  },
+  "bad habbit": {
+    "1": "Addict",
+    "2": "Alcoholic",
+    "3": "Kleptomaniac",
+    "4": "Weakened",
+    "5": "Criminal",
+    "6": "Schizophrenic",
+    "7": "Vampire",
+    "8": "Ugly",
+    "9": "Liar"
+  },
+  "phrases": {
+    "0": "race",
+    "1": "homeland",
+    "2": "profesion",
+    "3": "world wision",
+    "4": "bad habbit"
+  },
+  "habbit discription": {
+    "1": "You are a addict, so, you must take 1 dose of skooma every two days.",
+    "2": "As you can see, brother, you are another drunk from the street. Now you have to drink two extra bottles after eating.",
+    "3": "You are thief! You cannot control yourself and every night you steal 3 things from the someone house.",
+    "4": "Your body is so weak... Now you cannot heal diseases.",
+    "5": "Guards are looking for you, now you cannot live in your hometown, but if you are from the forest then don't care. Roam like Genghis Khan every three days to another city.",
+    "6": "You are a schizo, so every two days you are obliged to change your bad habit, if the schiz falls, roll again.",
+    "7": "Become a vampire before starting the game. Do not heal, suck calmly, but do not let anyone know about it.",
+    "8": "Your face is boring, no one will give you money. You can't carry more than 500 gold.",
+    "9": "Apparently you are not a liar, but a schizo. Since you have already chosen a victim and you rearrange objects there every night."
+  },
+  "textout": {
+    "1": "Before creating a character, I'll tell you the main rules:\n-You start at the maximum difficulty level and don't change it. \n-You cannot restart the game. Your decisions are final. \n-You only have one life. \n-You can only choose one facies.\n",
+    "2": "Choose {1} yourself, put the number from 1 to {2}. List of properties:",
+    "3": "Okay",
+    "4": "\nHave you just tried to cheat on me? Now you won't have a chance to choose {1} yourself. \n",
+    "5": "Remember, Dovahkiin, now you are {1}. It so happened that your homeland is {2}. \nWork is not easy, because you are {3}. As I understand, you are {4}, well, it's your business. \nYour life is not so simple, you have a unpleasant peculiarity, you are {5}!\nI'll tell you how you live with such a feature. \n{6}\n\nHere are some more rules, read and remember: \n1) Fast travel is prohibited. You cannot use bugs / cheats / console. \n2) Riding a horse is allowed, but only on the roads. \n3) Eat three times a day, your diet is 3 meals and 1 drink \n4) Sleep at least 7 hours if you did not sleep enough or slept too much, then take away or add extra hours to the next sleep. \nSleep only in places equipped for sleeping.\n5) You cannot carry more than 80 kilograms of cargo. \n6) If it is raining outside, put on a hat \n7) Your bag only holds what it can in reality, that is, without huge objects inside. \n8) Listen to all the dialogues in play without skipping. \n9) Your name must be suitable for your race. \n10) Experience realistically, without power leveling. \n11) The journey begins after you have slept in your home location. Ignore the main quest."
+  }
+}

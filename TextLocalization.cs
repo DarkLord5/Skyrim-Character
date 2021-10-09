@@ -13,49 +13,47 @@ namespace SkyrimPlayer
         readonly Dictionary<int, string> Text;
         internal TextLocalization(string lang)
         {
-            string json = "";
+            string filepath = "";
             language = lang;
             if (language == english)
             {
-                using StreamReader sr = new StreamReader(@"public\translations\EngOutText.json");
-                json = sr.ReadToEnd();
-                sr.Close();
+                filepath = @"public\translations\EngText.json";
             }
             else if(language == russian)
             {
-                using StreamReader sr = new StreamReader(@"public\translations\RuOutText.json");
-                json = sr.ReadToEnd();
-                sr.Close();
+                filepath = @"public\translations\RuText.json";
             }
-            Text = JsonConvert.DeserializeObject<Dictionary<int, string>>(json);
+            using StreamReader sr = new(filepath);
+            string json = sr.ReadToEnd();
+            sr.Close();
+            Dictionary<string, Dictionary<int, string>> LangDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<int, string>>>(json);
+            Text = LangDict["textout"];
         }
 
-        internal string Begining()
+        internal string JustText(int code)
         {
-            return Text[1];
+            return Text[code];
         }
 
-        internal string PlayerChoice(string param, int count)
+        internal string TextWithParam(string param, int code)
         {
-            string result = Text[2];
-            result = result.Replace("{1}", param);
-            result = result.Replace("{2}", count.ToString());
+            string result = JustText(code);
+            do
+            {
+              result = result.Replace("{param}", param);
+            } while (result.Contains("{param}"));
             return result;
         }
 
-        internal string GoodProgrammAnswer()
+        internal string TextWithParamCount(string param, int count, int code)
         {
-            return Text[3];
-        }
-
-        internal string WrongProgrammAnswer(string param)
-        {
-            string result = Text[4];
-            result = result.Replace("{1}", param);
+            string result = TextWithParam(param, code);
+            do
+            {
+                result = result.Replace("{count}", count.ToString());
+            } while (result.Contains("{count}"));
             return result;
         }
-
-
         internal string Ending(Dictionary<string, Dictionary<int, string>> LangDict, Dictionary<int, int> res)
         {
             string result = Text[5];
@@ -67,7 +65,5 @@ namespace SkyrimPlayer
             result = result.Replace("{6}", LangDict["habbit discription"][res[5]]);
             return result;
         }
-
-
     }
 }
