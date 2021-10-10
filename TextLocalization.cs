@@ -48,16 +48,5 @@ namespace SkyrimPlayer
             } while (result.Contains("{count}"));
             return result;
         }
-        internal string TextOut(Dictionary<int, int> res, int code)
-        {
-            string result = TextOut(code);
-            result = result.Replace("{1}", LangDict["race"][res[1]]);
-            result = result.Replace("{2}", LangDict["homeland"][res[2]]);
-            result = result.Replace("{3}", LangDict["profesion"][res[3]]);
-            result = result.Replace("{4}", LangDict["world wision"][res[4]]);
-            result = result.Replace("{5}", LangDict["bad habbit"][res[5]]);
-            result = result.Replace("{6}", LangDict["habbit discription"][res[5]]);
-            return result;
-        }
     }
 }

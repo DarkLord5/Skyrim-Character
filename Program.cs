@@ -10,7 +10,6 @@ namespace SkyrimPlayer
         static void Main(string[] args)
         {
             MyCharacter Charact = new();
-            const int paramCount = 5;
             string filepath;
             string language;
             do
@@ -39,7 +38,7 @@ namespace SkyrimPlayer
             Dictionary<int, string> BadHabDict = LangDict["bad habbit"];
             Dictionary<int, string> PersonalDict = LangDict["phrases"];
             Dictionary<int, Dictionary<int, string>> BaseDict = new() { { 1, RaceDict }, { 2, TownDict }, { 3, ProfDict }, { 4, WorldVisDict }, { 5, BadHabDict } };
-            
+            int paramCount = BaseDict.Count;
             var propertyArr = new int[paramCount, 2];
             InputOutputProvider.PrintText(localizer.TextOut(1), ConsoleColor.Green);
 
@@ -73,8 +72,12 @@ namespace SkyrimPlayer
             int[] resultArray = new int[paramCount];
             for (int i = 0; i < paramCount; i++)
                 resultArray[i] = propertyArr[i, 0];
-            var result = Charact.CreateCharacter(resultArray);
-            InputOutputProvider.PrintText(localizer.TextOut(result, 5), ConsoleColor.Yellow);
+            var res = Charact.CreateCharacter(resultArray);
+            string ending = localizer.TextOut(LangDict["race"][res[1]], 5) + localizer.TextOut(LangDict["homeland"][res[2]], 6) + 
+                localizer.TextOut(LangDict["profesion"][res[3]], 7) + localizer.TextOut(LangDict["world wision"][res[4]], 8) +
+                localizer.TextOut(LangDict["bad habbit"][res[5]], 9) + localizer.TextOut(LangDict["habbit discription"][res[5]], 10)+
+                localizer.TextOut(11);
+            InputOutputProvider.PrintText(ending, ConsoleColor.Yellow);
             InputOutputProvider.ReadText();
         }
        

@@ -78,6 +78,12 @@
     "2": "Choose {param} yourself, put the number from 1 to {count}. List of properties:",
     "3": "Okay",
     "4": "\nHave you just tried to cheat on me? Now you won't have a chance to choose {param} yourself. \n",
-    "5": "Remember, Dovahkiin, now you are {1}. It so happened that your homeland is {2}. \nWork is not easy, because you are {3}. As I understand, you are {4}, well, it's your business. \nYour life is not so simple, you have a unpleasant peculiarity, you are {5}!\nI'll tell you how you live with such a feature. \n{6}\n\nHere are some more rules, read and remember: \n1) Fast travel is prohibited. You cannot use bugs / cheats / console. \n2) Riding a horse is allowed, but only on the roads. \n3) Eat three times a day, your diet is 3 meals and 1 drink \n4) Sleep at least 7 hours if you did not sleep enough or slept too much, then take away or add extra hours to the next sleep. \nSleep only in places equipped for sleeping.\n5) You cannot carry more than 80 kilograms of cargo. \n6) If it is raining outside, put on a hat \n7) Your bag only holds what it can in reality, that is, without huge objects inside. \n8) Listen to all the dialogues in play without skipping. \n9) Your name must be suitable for your race. \n10) Experience realistically, without power leveling. \n11) The journey begins after you have slept in your home location. Ignore the main quest."
+    "5": "Remember, Dovahkiin, now you are {param}.",
+    "6": " It so happened that your homeland is {param}. ",
+    "7": "\nWork is not easy, because you are {param}.",
+    "8": " As I understand, you are {param}, well, it's your business. ",
+    "9": "\nYour life is not so simple, you have a unpleasant peculiarity, you are {param}!",
+    "10": "\nI'll tell you how you live with such a feature. \n{param}\n",
+    "11": "\nHere are some more rules, read and remember: \n1) Fast travel is prohibited. You cannot use bugs / cheats / console. \n2) Riding a horse is allowed, but only on the roads. \n3) Eat three times a day, your diet is 3 meals and 1 drink \n4) Sleep at least 7 hours if you did not sleep enough or slept too much, then take away or add extra hours to the next sleep. \nSleep only in places equipped for sleeping.\n5) You cannot carry more than 80 kilograms of cargo. \n6) If it is raining outside, put on a hat \n7) Your bag only holds what it can in reality, that is, without huge objects inside. \n8) Listen to all the dialogues in play without skipping. \n9) Your name must be suitable for your race. \n10) Experience realistically, without power leveling. \n11) The journey begins after you have slept in your home location. Ignore the main quest."
   }
 }
