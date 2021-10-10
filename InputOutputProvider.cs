@@ -18,10 +18,5 @@ namespace SkyrimPlayer
             Console.ForegroundColor = color;
             return Console.ReadLine();
         }
-        public static void PrintToOneString(string text = "", ConsoleColor color = ConsoleColor.White)
-        {
-            Console.ForegroundColor = color;
-            Console.Write(text);
-        }
     }
 }

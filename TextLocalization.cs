@@ -48,7 +48,7 @@ namespace SkyrimPlayer
             } while (result.Contains("{count}"));
             return result;
         }
-        internal string TextOut(Dictionary<string, Dictionary<int, string>> LangDict, Dictionary<int, int> res, int code)
+        internal string TextOut(Dictionary<int, int> res, int code)
         {
             string result = TextOut(code);
             result = result.Replace("{1}", LangDict["race"][res[1]]);

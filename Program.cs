@@ -10,7 +10,7 @@ namespace SkyrimPlayer
         static void Main(string[] args)
         {
             MyCharacter Charact = new();
-
+            const int paramCount = 5;
             string filepath;
             string language;
             do
@@ -40,22 +40,23 @@ namespace SkyrimPlayer
             Dictionary<int, string> PersonalDict = LangDict["phrases"];
             Dictionary<int, Dictionary<int, string>> BaseDict = new() { { 1, RaceDict }, { 2, TownDict }, { 3, ProfDict }, { 4, WorldVisDict }, { 5, BadHabDict } };
             
-            var propertyArr = new int[BaseDict.Count, 2];
+            var propertyArr = new int[paramCount, 2];
             InputOutputProvider.PrintText(localizer.TextOut(1), ConsoleColor.Green);
 
-            for (int i = 0; i < BaseDict.Count; i++)
+            for (int i = 0; i < paramCount; i++)
             {
                 propertyArr[i, 1] = BaseDict[i + 1].Count;
                 propertyArr[i, 0] = Charact.ParamRandomizer(0, propertyArr[i,1]+1);
                 if (propertyArr[i, 0] == 0)
                 {
                     InputOutputProvider.PrintText(localizer.TextOut(PersonalDict[i], propertyArr[i, 1], 2), ConsoleColor.Yellow);
+                    string paramList ="";
                     for(int j=1; j<= propertyArr[i, 1]; j++)
                     {
                         var Elem = BaseDict[i + 1];
-                        InputOutputProvider.PrintToOneString($"{j}. {Elem[j]}  ", ConsoleColor.Blue);
+                        paramList = $"{paramList}{j}. {Elem[j]}  ";
                     }
-                    InputOutputProvider.PrintText();
+                    InputOutputProvider.PrintText(paramList, ConsoleColor.Blue);
                     string answer = InputOutputProvider.ReadText(ConsoleColor.Red);
                     if ((int.TryParse(answer, out int num)) && (num > 0) && (num < propertyArr[i, 1] + 1))
                     {
@@ -69,11 +70,11 @@ namespace SkyrimPlayer
                     }
                 }
             }
-            int[] resultArray = new int[BaseDict.Count];
-            for (int i = 0; i < BaseDict.Count; i++)
+            int[] resultArray = new int[paramCount];
+            for (int i = 0; i < paramCount; i++)
                 resultArray[i] = propertyArr[i, 0];
             var result = Charact.CreateCharacter(resultArray);
-            InputOutputProvider.PrintText(localizer.TextOut(LangDict,result, 5), ConsoleColor.Yellow);
+            InputOutputProvider.PrintText(localizer.TextOut(result, 5), ConsoleColor.Yellow);
             InputOutputProvider.ReadText();
         }
        
