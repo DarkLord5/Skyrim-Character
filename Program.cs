@@ -15,9 +15,8 @@ namespace SkyrimPlayer
         {
             do
             {
-                string choice;
                 InputOutputProvider.PrintText(localizer.TextOut(13));
-                choice = InputOutputProvider.ReadText(ConsoleColor.Red);
+                string choice = InputOutputProvider.ReadText(ConsoleColor.Red);
                 if (choice == "1"){
                     GenerateCharacter();
                 } else if (choice == "2") {
@@ -42,18 +41,14 @@ namespace SkyrimPlayer
         {
             InputOutputProvider.PrintText(localizer.TextOut(1), ConsoleColor.Green);
             
-            Dictionary<int, string> PersonalDict = LangDict["phrases"];
             Dictionary<int, Dictionary<int, string>> BaseDict = new() { { 1, LangDict["race"] }, { 2, LangDict["homeland"] }, { 3, LangDict["profesion"] }, { 4, LangDict["world wision"] }, { 5, LangDict["bad habbit"] } };
             int paramCount = BaseDict.Count;
             var propertyArr = new int[paramCount];
             for (int i = 0; i < paramCount; i++)
             {
-                propertyArr[i] = ParamGeneration(PersonalDict[i], BaseDict[i + 1]);
+                propertyArr[i] = ParamGeneration(LangDict["phrases"][i], BaseDict[i + 1]);
             }
-            int[] resultArray = new int[paramCount];
-            for (int i = 0; i < paramCount; i++)
-                resultArray[i] = propertyArr[i];
-            var res = Charact.CreateCharacter(resultArray);
+            var res = Charact.CreateCharacter(propertyArr);
             string ending = localizer.TextOut(LangDict["race"][res[1]], 5) + localizer.TextOut(LangDict["homeland"][res[2]], 6) +
                 localizer.TextOut(LangDict["profesion"][res[3]], 7) + localizer.TextOut(LangDict["world wision"][res[4]], 8) +
                 localizer.TextOut(LangDict["bad habbit"][res[5]], 9) + localizer.TextOut(LangDict["habbit discription"][res[5]], 10) +
