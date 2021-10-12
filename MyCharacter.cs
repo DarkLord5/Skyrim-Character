@@ -10,6 +10,7 @@ namespace SkyrimPlayer
         public string MyProfecy { get; set; }
         public string MyWorldVision { get; set; }
         public string MyBadHabbit { get; set; }
+        public string TempBadHabbit { get; set; }
 
         static Dictionary<int, string> RaceDict = new()
         {

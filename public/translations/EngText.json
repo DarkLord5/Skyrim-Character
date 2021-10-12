@@ -84,6 +84,10 @@
     "8": " As I understand, you are {param}, well, it's your business. ",
     "9": "\nYour life is not so simple, you have a unpleasant peculiarity, you are {param}!",
     "10": "\nI'll tell you how you live with such a feature. \n{param}\n",
-    "11": "\nHere are some more rules, read and remember: \n1) Fast travel is prohibited. You cannot use bugs / cheats / console. \n2) Riding a horse is allowed, but only on the roads. \n3) Eat three times a day, your diet is 3 meals and 1 drink \n4) Sleep at least 7 hours if you did not sleep enough or slept too much, then take away or add extra hours to the next sleep. \nSleep only in places equipped for sleeping.\n5) You cannot carry more than 80 kilograms of cargo. \n6) If it is raining outside, put on a hat \n7) Your bag only holds what it can in reality, that is, without huge objects inside. \n8) Listen to all the dialogues in play without skipping. \n9) Your name must be suitable for your race. \n10) Experience realistically, without power leveling. \n11) The journey begins after you have slept in your home location. Ignore the main quest."
+    "11": "\nHere are some more rules, read and remember: \n1) Fast travel is prohibited. You cannot use bugs / cheats / console. \n2) Riding a horse is allowed, but only on the roads. \n3) Eat three times a day, your diet is 3 meals and 1 drink \n4) Sleep at least 7 hours if you did not sleep enough or slept too much, then take away or add extra hours to the next sleep. \nSleep only in places equipped for sleeping.\n5) You cannot carry more than 80 kilograms of cargo. \n6) If it is raining outside, put on a hat \n7) Your bag only holds what it can in reality, that is, without huge objects inside. \n8) Listen to all the dialogues in play without skipping. \n9) Your name must be suitable for your race. \n10) Experience realistically, without power leveling. \n11) The journey begins after you have slept in your home location. Ignore the main quest.",
+    "12": "Choose a language: 1)English(eng). 2)Russian(ru)",
+    "13": "Choose an action: 1 - Create new character. 2 - Change your bad habbit(if your actual habbit is schizophrenic. 3 - Change the language. 4 - Exit from the app.",
+    "14": "Unknown command",
+    "15": "Your character is not schizophrenic"
   }
 }
