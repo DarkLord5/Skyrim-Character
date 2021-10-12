@@ -10,32 +10,27 @@ namespace SkyrimPlayer
         static void Main(string[] args)
         {
             MyCharacter Charact = new();
-            
+            string filepath;
             string language;
-            string json;
             do
             {
-                Console.WriteLine("Choose a language: 1)English(eng). 2)Russian(ru)");
-                language = Console.ReadLine();
+                InputOutputProvider.PrintText("Choose a language: 1)English(eng). 2)Russian(ru)");
+                language = InputOutputProvider.ReadText();
                 if ((language == "2") || (language == "ru"))
                 {
                     language = TextLocalization.russian;
-                    using StreamReader sr = new StreamReader(@"public\translations\RuText.json");
-                    json = sr.ReadToEnd();
-                    sr.Close();
+                    filepath = TextLocalization.ruFilePath;
                     break;
                 }
                 if ((language == "1") || (language == "eng"))
                 {
                     language = TextLocalization.english;
-                    using StreamReader sr = new StreamReader(@"public\translations\EngText.json");
-                    json = sr.ReadToEnd();
-                    sr.Close();
+                    filepath = TextLocalization.engFilePath;
                     break;
                 }
             } while (true);
-            TextLocalization localizer = new(language);
-            Dictionary<string, Dictionary<int, string>> LangDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<int, string>>>(json);
+            TextLocalization localizer = new(language, filepath);
+            Dictionary<string, Dictionary<int, string>> LangDict = localizer.LangDict;
             Dictionary<int, string> RaceDict = LangDict["race"];
             Dictionary<int, string> TownDict = LangDict["homeland"];
             Dictionary<int, string> ProfDict = LangDict["profesion"];
@@ -43,48 +38,48 @@ namespace SkyrimPlayer
             Dictionary<int, string> BadHabDict = LangDict["bad habbit"];
             Dictionary<int, string> PersonalDict = LangDict["phrases"];
             Dictionary<int, Dictionary<int, string>> BaseDict = new() { { 1, RaceDict }, { 2, TownDict }, { 3, ProfDict }, { 4, WorldVisDict }, { 5, BadHabDict } };
-            
-            var propertyArr = new int[5, 2];
-            for (int i = 1; i <= 5; i++)
-            {
-                propertyArr[i - 1, 1] = BaseDict[i].Count;
-            }
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(localizer.Begining());
+            int paramCount = BaseDict.Count;
+            var propertyArr = new int[paramCount, 2];
+            InputOutputProvider.PrintText(localizer.TextOut(1), ConsoleColor.Green);
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < paramCount; i++)
             {
+                propertyArr[i, 1] = BaseDict[i + 1].Count;
                 propertyArr[i, 0] = Charact.ParamRandomizer(0, propertyArr[i,1]+1);
                 if (propertyArr[i, 0] == 0)
                 {
-                    Console.WriteLine(localizer.PlayerChoice(PersonalDict[i], propertyArr[i, 1]));
+                    InputOutputProvider.PrintText(localizer.TextOut(PersonalDict[i], propertyArr[i, 1], 2), ConsoleColor.Yellow);
+                    string paramList ="";
                     for(int j=1; j<= propertyArr[i, 1]; j++)
                     {
                         var Elem = BaseDict[i + 1];
-                        Console.Write($"{j}. {Elem[j]}  ");
+                        paramList = $"{paramList}{j}. {Elem[j]}  ";
                     }
-                    Console.WriteLine();
-                    string answer = Console.ReadLine();
+                    InputOutputProvider.PrintText(paramList, ConsoleColor.Blue);
+                    string answer = InputOutputProvider.ReadText(ConsoleColor.Red);
                     if ((int.TryParse(answer, out int num)) && (num > 0) && (num < propertyArr[i, 1] + 1))
                     {
-                        Console.WriteLine(localizer.GoodProgrammAnswer());
+                        InputOutputProvider.PrintText(localizer.TextOut(3), ConsoleColor.Yellow);
                         propertyArr[i, 0] = num;
                     }
                     else
                     {
-                        Console.WriteLine(localizer.WrongProgrammAnswer(PersonalDict[i]));
+                        InputOutputProvider.PrintText(localizer.TextOut(PersonalDict[i], 4), ConsoleColor.Yellow);
                         propertyArr[i, 0] = Charact.ParamRandomizer(1, propertyArr[i, 1] + 1);
                     }
                 }
             }
-            int[] resultArray = new int[5];
-            for (int i = 0; i < 5; i++)
+            int[] resultArray = new int[paramCount];
+            for (int i = 0; i < paramCount; i++)
                 resultArray[i] = propertyArr[i, 0];
-            var result = Charact.CreateCharacter(resultArray);
-            Console.WriteLine(localizer.Ending(LangDict,result));
-            Console.ReadKey();
+            var res = Charact.CreateCharacter(resultArray);
+            string ending = localizer.TextOut(LangDict["race"][res[1]], 5) + localizer.TextOut(LangDict["homeland"][res[2]], 6) + 
+                localizer.TextOut(LangDict["profesion"][res[3]], 7) + localizer.TextOut(LangDict["world wision"][res[4]], 8) +
+                localizer.TextOut(LangDict["bad habbit"][res[5]], 9) + localizer.TextOut(LangDict["habbit discription"][res[5]], 10)+
+                localizer.TextOut(11);
+            InputOutputProvider.PrintText(ending, ConsoleColor.Yellow);
+            InputOutputProvider.ReadText();
         }
+       
     }
 }

@@ -9,65 +9,44 @@ namespace SkyrimPlayer
     {
         public static readonly string english = "english";
         public static readonly string russian = "russian";
-        string language { get; set; }
+        public static readonly string ruFilePath = @"public\translations\RuText.json";
+        public static readonly string engFilePath = @"public\translations\EngText.json";
+        internal Dictionary<string, Dictionary<int, string>> LangDict;
+        string Language { get; set; }
         readonly Dictionary<int, string> Text;
-        internal TextLocalization(string lang)
+        internal TextLocalization(string lang, string filepath)
         {
-            string json = "";
-            language = lang;
-            if (language == english)
+            Language = lang;
+            using StreamReader sr = new(filepath);
+            string json = sr.ReadToEnd();
+            sr.Close();
+            LangDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<int, string>>>(json);
+            Text = LangDict["textout"];
+        }
+
+        internal string TextOut(int code)
+        {
+            return Text[code];
+        }
+
+        internal string TextOut(string param, int code)
+        {
+            string result = TextOut(code);
+            do
             {
-                using StreamReader sr = new StreamReader(@"public\translations\EngOutText.json");
-                json = sr.ReadToEnd();
-                sr.Close();
-            }
-            else if(language == russian)
+              result = result.Replace("{param}", param);
+            } while (result.Contains("{param}"));
+            return result;
+        }
+
+        internal string TextOut(string param, int count, int code)
+        {
+            string result = TextOut(param, code);
+            do
             {
-                using StreamReader sr = new StreamReader(@"public\translations\RuOutText.json");
-                json = sr.ReadToEnd();
-                sr.Close();
-            }
-            Text = JsonConvert.DeserializeObject<Dictionary<int, string>>(json);
-        }
-
-        internal string Begining()
-        {
-            return Text[1];
-        }
-
-        internal string PlayerChoice(string param, int count)
-        {
-            string result = Text[2];
-            result = result.Replace("{1}", param);
-            result = result.Replace("{2}", count.ToString());
+                result = result.Replace("{count}", count.ToString());
+            } while (result.Contains("{count}"));
             return result;
         }
-
-        internal string GoodProgrammAnswer()
-        {
-            return Text[3];
-        }
-
-        internal string WrongProgrammAnswer(string param)
-        {
-            string result = Text[4];
-            result = result.Replace("{1}", param);
-            return result;
-        }
-
-
-        internal string Ending(Dictionary<string, Dictionary<int, string>> LangDict, Dictionary<int, int> res)
-        {
-            string result = Text[5];
-            result = result.Replace("{1}", LangDict["race"][res[1]]);
-            result = result.Replace("{2}", LangDict["homeland"][res[2]]);
-            result = result.Replace("{3}", LangDict["profesion"][res[3]]);
-            result = result.Replace("{4}", LangDict["world wision"][res[4]]);
-            result = result.Replace("{5}", LangDict["bad habbit"][res[5]]);
-            result = result.Replace("{6}", LangDict["habbit discription"][res[5]]);
-            return result;
-        }
-
-
     }
 }
