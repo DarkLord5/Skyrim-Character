@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SkyrimPlayer
 {
@@ -13,6 +16,9 @@ namespace SkyrimPlayer
 
         static void Main(string[] args)
         {
+            DB dB = new ();
+            dB.openDB();
+            
             do
             {
                 InputOutputProvider.PrintText(localizer.TextOut(13));
@@ -34,7 +40,7 @@ namespace SkyrimPlayer
                     InputOutputProvider.PrintText(localizer.TextOut(14));
                 }
             } while (true);
-            
+            dB.closeDB();
         }
 
         static public void GenerateCharacter()
