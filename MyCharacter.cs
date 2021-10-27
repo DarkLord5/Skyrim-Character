@@ -10,6 +10,7 @@ namespace SkyrimPlayer
         public string MyProfecy { get; set; }
         public string MyWorldVision { get; set; }
         public string MyBadHabbit { get; set; }
+        public string TempBadHabbit { get; set; }
 
         static Dictionary<int, string> RaceDict = new()
         {
@@ -42,6 +43,7 @@ namespace SkyrimPlayer
             Random random = new();
             return random.Next(min, max);
         }
+        
         public Dictionary<int, int> CreateCharacter(int[] array)
         {
             int raceId = array[0]; int townId = array[1]; int profId = array[2]; int worldId = array[3]; int bhId = array[4];
@@ -50,6 +52,7 @@ namespace SkyrimPlayer
             MyProfecy = ProfDict[profId];
             MyWorldVision = WorldVisDict[worldId];
             MyBadHabbit = BadHabDict[bhId];
+            TempBadHabbit = "";
             return new Dictionary<int, int>() { {1 , raceId },{2 , townId },{3 , profId },{4, worldId },{5 , bhId } };
         }
     }
